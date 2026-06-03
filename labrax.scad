@@ -48,11 +48,11 @@ module slotInsert() {
             cube([ U_Height * 44.45, 16, 2 ]);
             // Extensions filling the 2mm gap, with hex-shaped cutouts for the nuts
             difference() {
-                translate([ 0, 0, 2 ]) cube([ U_Height * 44.45, 16, Nut_Thickness / 2 - 2 ]);
+                translate([ 0, 0, 2 ]) cube([ U_Height * 44.45, 16, (Nut_Thickness + Nut_Tolerance) / 2 - 2 ]);
                 for (i = [0 : 1 : U_Height]) {
-                    translate([ 6.35 + (i * 44.45),           7, 2 + (Nut_Thickness / 2 - 2) / 2 ]) rotate([ 0, 0, 90 ]) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness / 2 - 2);
-                    translate([ 6.35 + 15.875 + (i * 44.45),  7, 2 + (Nut_Thickness / 2 - 2) / 2 ]) rotate([ 0, 0, 90 ]) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness / 2 - 2);
-                    translate([ 6.35 + 31.75 + (i * 44.45),   7, 2 + (Nut_Thickness / 2 - 2) / 2 ]) rotate([ 0, 0, 90 ]) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness / 2 - 2);
+                    translate([ 6.35 + (i * 44.45),           7, 2 + ((Nut_Thickness + Nut_Tolerance) / 2 - 2) / 2 ]) rotate([ 0, 0, 90 ]) elongated_hex(M6_nut + Nut_Tolerance, (Nut_Thickness + Nut_Tolerance) / 2 - 2);
+                    translate([ 6.35 + 15.875 + (i * 44.45),  7, 2 + ((Nut_Thickness + Nut_Tolerance) / 2 - 2) / 2 ]) rotate([ 0, 0, 90 ]) elongated_hex(M6_nut + Nut_Tolerance, (Nut_Thickness + Nut_Tolerance) / 2 - 2);
+                    translate([ 6.35 + 31.75 + (i * 44.45),   7, 2 + ((Nut_Thickness + Nut_Tolerance) / 2 - 2) / 2 ]) rotate([ 0, 0, 90 ]) elongated_hex(M6_nut + Nut_Tolerance, (Nut_Thickness + Nut_Tolerance) / 2 - 2);
                 }
             }
         }
@@ -165,17 +165,17 @@ module frontPostShape()
         baseShape(U_Height * 44.45);
         for (i = [0 : 1 : U_Height]) {  
             translate([ 6.35 + (i * 44.45), 7, 31 ]) rotate([ 0, 0, 90 ])
-            if (Slot_Insert) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness); else cylinder(h = Nut_Thickness, d = M6_nut + Nut_Tolerance, center = true, $fn = 6);
+            if (Slot_Insert) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness + Nut_Tolerance); else cylinder(h = Nut_Thickness + Nut_Tolerance, d = M6_nut + Nut_Tolerance, center = true, $fn = 6);
             translate([ 6.35 + (i * 44.45), 7, 32.5 ])
             cylinder(h = 50, d = M6_bolt_clearance, center = true, $fn = 50);
 
             translate([ 6.35 + 15.875 + (i * 44.45), 7, 31 ]) rotate([ 0, 0, 90 ])
-            if (Slot_Insert) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness); else cylinder(h = Nut_Thickness, d = M6_nut + Nut_Tolerance, center = true, $fn = 6);
+            if (Slot_Insert) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness + Nut_Tolerance); else cylinder(h = Nut_Thickness + Nut_Tolerance, d = M6_nut + Nut_Tolerance, center = true, $fn = 6);
             translate([ 6.35 + 15.875 + (i * 44.45), 7, 32.5 ])
             cylinder(h = 8, d = M6_bolt_clearance, center = true, $fn = 50);
 
             translate([ 6.35 + 31.75 + (i * 44.45), 7, 31 ]) rotate([ 0, 0, 90 ])
-            if (Slot_Insert) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness); else cylinder(h = Nut_Thickness, d = M6_nut + Nut_Tolerance, center = true, $fn = 6);
+            if (Slot_Insert) elongated_hex(M6_nut + Nut_Tolerance, Nut_Thickness + Nut_Tolerance); else cylinder(h = Nut_Thickness + Nut_Tolerance, d = M6_nut + Nut_Tolerance, center = true, $fn = 6);
             translate([ 6.35 + 31.75 + (i * 44.45), 7, 32.5 ])
             cylinder(h = 8, d = M6_bolt_clearance, center = true, $fn = 50);
         }
@@ -209,7 +209,7 @@ if(Walls) {
 if (Slot_Insert && Vertical_Rails) {
     rotate([ 180, 0, 0 ])
     translate([-(Total_Rack_Depth - 70) / 2, 20, -35])
-    translate([ 0, 0, 29 - Nut_Thickness / 2 ])
+    translate([ 0, 0, 29 - (Nut_Thickness + Nut_Tolerance) / 2 ])
     slotInsert();
 }
 

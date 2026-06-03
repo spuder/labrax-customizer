@@ -34,6 +34,30 @@
             "U_Height": "1",
             "Vertical_Rails": "true",
             "Walls": "false"
+        },
+        "5U Slotted": {
+            "Handles_Hole_Width": "127.5",
+            "Horizontal_Rails": "false",
+            "Nut_Thickness": "5",
+            "Panel_Depth": "3",
+            "Sacrificial_Layer": "true",
+            "Slot_Insert": "true",
+            "Total_Rack_Depth": "240",
+            "U_Height": "5",
+            "Vertical_Rails": "true",
+            "Walls": "false"
+        },
+        "2U Slotted": {
+            "Handles_Hole_Width": "127.5",
+            "Horizontal_Rails": "false",
+            "Nut_Thickness": "5",
+            "Panel_Depth": "3",
+            "Sacrificial_Layer": "true",
+            "Slot_Insert": "true",
+            "Total_Rack_Depth": "240",
+            "U_Height": "2",
+            "Vertical_Rails": "true",
+            "Walls": "false"
         }
     }
 }
