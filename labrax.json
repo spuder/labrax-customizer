@@ -1,0 +1,39 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "1U-NoWalls": {
+            "Handles_Hole_Width": "127.5",
+            "Horizontal_Rails": "false",
+            "Panel_Depth": "3",
+            "Slot_Insert": "false",
+            "Total_Rack_Depth": "240",
+            "U_Height": "1",
+            "Vertical_Rails": "true",
+            "Walls": "false"
+        },
+        "1U-NoWalls-Slots": {
+            "Handles_Hole_Width": "127.5",
+            "Horizontal_Rails": "false",
+            "Nut_Thickness": "5",
+            "Panel_Depth": "3",
+            "Sacrificial_Layer": "false",
+            "Slot_Insert": "true",
+            "Total_Rack_Depth": "240",
+            "U_Height": "1",
+            "Vertical_Rails": "true",
+            "Walls": "false"
+        },
+        "1U-NoWalls-Slots-Sacrifice": {
+            "Handles_Hole_Width": "127.5",
+            "Horizontal_Rails": "false",
+            "Nut_Thickness": "5",
+            "Panel_Depth": "3",
+            "Sacrificial_Layer": "true",
+            "Slot_Insert": "true",
+            "Total_Rack_Depth": "240",
+            "U_Height": "1",
+            "Vertical_Rails": "true",
+            "Walls": "false"
+        }
+    }
+}
